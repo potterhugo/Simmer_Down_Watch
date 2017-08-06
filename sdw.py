@@ -50,6 +50,12 @@ try:
     OVER = False
     start_time = time.time()
     beat_times = []
+    av_bpm = 70
+
+    bpm_med = 75
+    bpm_high = 90
+
+
     while True:
         heartrateV = mcp.read_adc(4)
         n = heartrateV // 15 - 20
@@ -67,22 +73,22 @@ try:
                     lcd.clear()
                     av_time_between_beats =  sum(beat_times)/NO_BEATS
 		    av_bpm = 60. / av_time_between_beats
-                    lcd.message('%.3f s\n%d b.p.m.' % (av_time_between_beats, av_bpm))
+                    #lcd.message('%.3f s\n%d b.p.m.' % (av_time_between_beats, av_bpm))
+                    lcd.message('%d b.p.m.' % av_bpm)
 
 		    beat_times = []
  	    OVER = True
 	else:
             OVER = False
-#           # GPIO.output(LED_PIN, True)
-#	    lcd.clear
-#	    lcd.message(":|")
-#        elif heartrateV > 600:
-#	    lcd.clear
-#	    lcd.message(":(")
-#	elif heartrateV < 500:
-#	    lcd.clear
-#	    lcd.message(":)")
-            #GPIO.output(LED_PIN, False)
+        if av_bpm < bpm_med: 
+            lcd.message("\n:)")
+            GPIO.output(LED_PIN, False)
+        elif heartrateV < bpm_high:
+            lcd.message("\n:|")
+            GPIO.output(LED_PIN, False)
+        else:
+            lcd.message("\n:)")
+            GPIO.output(LED_PIN, True)
 	
 	
         time.sleep(0.05)

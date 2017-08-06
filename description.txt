@@ -1,0 +1,19 @@
+Hugo's Science Project 2017.
+Components:
+Adafruit MCP3008 Anolouge to digital converter
+Adafruit CharLCD LCD screen
+Iduino pulse monitor
+raspberry pi
+
+What Happens:
+when the heartrate monittor gets an input, it uses an algorithim to work out 
+the BPM of the heartrate and uses that to show emoji on the screen, depending
+On how you feel (eg. if your pulse gets above 100, then put an :| on the 
+screen, etc)))
+
+we need the analogue - digital converter because the pulse meter reads your 
+heartrate as a anologe signal, so if we plug it staright in to the raspberry
+pi, then it wont work.
+
+We jumpend on the trampoline with two people an a giant frisbee, and we got a 
+BPM of 117
