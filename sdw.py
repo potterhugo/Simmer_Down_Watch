@@ -1,5 +1,6 @@
 try:
     import time
+    import random
     
     # The pin configuration and set up is based on the tutorials/examples at
     # https://github.com/adafruit/Adafruit_Python_CharLCD (for the LCD screen) and
@@ -25,7 +26,8 @@ try:
     # Initialize the LCD using the pins above.
     lcd = LCD.Adafruit_CharLCD(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6, lcd_d7,
                                lcd_columns, lcd_rows, lcd_backlight)
-
+    FE = ["Fidget spinner","Finger Pull", "Hand massage"]#Fast and Emotinal
+    ST = ["Arm massage", "Arm Pretzel", "Palm Push"]#Slaw and tierd 
 
     # Import MCP3008 library.
     import Adafruit_MCP3008
@@ -86,13 +88,15 @@ try:
             OVER = False
         if av_bpm < bpm_med: 
             lcd.message("\n:)")
-            GPIO.output(LED_PIN, False)
-        elif heartrateV < bpm_high:
+           # GPIO.output(LED_PIN, False)
+        elif av_bpm < bpm_high:
             lcd.message("\n:|")
-            GPIO.output(LED_PIN, False)
+           # GPIO.output(LED_PIN, False)
+	elif av_bpm < 30 :
+	    lcd.message("\n ZZZ"+" Try" + random.choice(ST))
         else:
-            lcd.message("\n:(")
-            GPIO.output(LED_PIN, True)
+            lcd.message("\n:(" + " Try" + random.choice(FE)
+            #GPIO.output(LED_PIN, True)
 	
 	
         time.sleep(0.05)
