@@ -12,8 +12,11 @@ On how you feel (eg. if your pulse gets above 100, then put an :| on the
 screen, etc)))
 
 we need the analogue - digital converter because the pulse meter reads your 
-heartrate as a anologe signal, so if we plug it staright in to the raspberry
+heartrate as an analogue signal, so if we plug it staright in to the raspberry
 pi, then it wont work.
 
-We jumpend on the trampoline with two people an a giant frisbee, and we got a 
-BPM of 117
+Testing:
+We started off with a calm reading, sitting calmly on the lounge, and the 
+reading was 77 BPM then we wanted to simulate an excited reading, so
+we jumped on the trampoline with two people an a giant frisbee, and we got a 
+BPM of 117.
