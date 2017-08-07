@@ -1,6 +1,10 @@
 try:
     import time
     
+    # The pin configuration and set up is based on the tutorials/examples at
+    # https://github.com/adafruit/Adafruit_Python_CharLCD (for the LCD screen) and
+    # https://github.com/adafruit/Adafruit_Python_MCP3008 (for the analogue-digital converter)
+	
     import RPi.GPIO as GPIO
     # Set up LCD character display
     import Adafruit_CharLCD as LCD
@@ -43,8 +47,8 @@ try:
     # Welcome message
     lcd.clear()
     #########....1234567890123456
-    lcd.message("Pi is yummy")
-    #lcd.message("Hello WorlMOO \n hello mrs cow")
+    lcd.message("Welcome to the\n"+
+	        "SimmerDown Watch")
     time.sleep(5)
 
     OVER = False
@@ -87,7 +91,7 @@ try:
             lcd.message("\n:|")
             GPIO.output(LED_PIN, False)
         else:
-            lcd.message("\n:)")
+            lcd.message("\n:(")
             GPIO.output(LED_PIN, True)
 	
 	
