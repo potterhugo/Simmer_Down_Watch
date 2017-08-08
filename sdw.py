@@ -10,13 +10,13 @@ try:
     # Set up LCD character display
     import Adafruit_CharLCD as LCD
 
-    # Raspberry Pi pin configuration:
-    lcd_rs        = 25  # Note this might need to be changed to 21 for older revision Pi's.
+    # LCD screen pin configuration:
     lcd_en        = 24
     lcd_d4        = 23
     lcd_d5        = 17
     lcd_d6        = 27
     lcd_d7        = 22
+    lcd_rs        = 25  
     lcd_backlight = 4
 
     # Define LCD column and row size for 16x2 LCD.
@@ -32,7 +32,7 @@ try:
     # Import MCP3008 library.
     import Adafruit_MCP3008
 
-    # Software SPI configuration:
+    # MCP3008 software pin configuration:
     CLK  = 18
     MISO = 4
     MOSI = 21
@@ -93,12 +93,11 @@ try:
             lcd.message("\n:|")
            # GPIO.output(LED_PIN, False)
 	elif av_bpm < 30 :
-	    lcd.message("\n ZZZ"+" Try" + random.choice(ST))
+	    lcd.message("\n ZZZ"+" Try" + "fidget spinner")
         else:
-            lcd.message("\n:(" + " Try" + random.choice(FE)
+            lcd.message("  :(" + "\n Try " +  "finger pull" )
             #GPIO.output(LED_PIN, True)
-	
-	
+		
         time.sleep(0.05)
 except KeyboardInterrupt:
     print('pressed ctrl-C')
